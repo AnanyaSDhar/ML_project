@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 
-model = pickle.load(open("RFR_model2.pkl", "rb"))
+model = pickle.load(open("student-grade_pred_model.pkl", "rb"))
 scaler = MinMaxScaler()
 
 @app.route("/")
@@ -39,7 +39,6 @@ def predict():
     goout = request.form['goout']
     health = request.form['health']
     absences = request.form['absences']
-    creativity = request.form['creativity']
     school = request.form['school']
     gender = request.form['gender']
     school_sup = request.form['school_sup']
@@ -49,6 +48,8 @@ def predict():
     Activities = request.form['Activities']
     higher = request.form['higher']
     internet = request.form['internet']
+    G1 = request.form['G1']
+    G2 = request.form['G2']
     
     form_data = {
     'Medu': request.form['Medu'],
@@ -71,6 +72,8 @@ def predict():
     'Activities': request.form['Activities'],
     'higher': request.form['higher'],
     'internet': request.form['internet']
+    'G1' = request.form['G1']
+    'G2' = request.form['G2']
     }
     scaler.fit(list(form_data.values()))
     normalized_data = scaler.transform(list(form_data.values()))
