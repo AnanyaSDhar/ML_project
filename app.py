@@ -72,8 +72,8 @@ def predict():
     'Activities': request.form['Activities'],
     'higher': request.form['higher'],
     'internet': request.form['internet']
-    'G1' = request.form['G1']
-    'G2' = request.form['G2']
+    'G1' : request.form['G1']
+    'G2' : request.form['G2']
     }
     scaler.fit(list(form_data.values()))
     normalized_data = scaler.transform(list(form_data.values()))
